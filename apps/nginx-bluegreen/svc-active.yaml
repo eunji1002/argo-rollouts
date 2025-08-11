@@ -3,8 +3,10 @@ kind: Service
 metadata:
   name: nginx-active
 spec:
+  type: NodePort   # ← 여기 변경
   selector:
-    app: nginx   # 컨트롤러가 적절히 해시 셀렉터로 패치
+    app: nginx
   ports:
     - port: 80
       targetPort: 80
+      nodePort: 30080 
